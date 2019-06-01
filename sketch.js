@@ -24,7 +24,7 @@ function setup() {
 	mypop = new population(startPos.x,startPos.y, popSize);
 	target = createVector(width/2, height*0.1);
 	console.log("Generation : " + generation);
-	obstacles.push(new obstacle(width*0.5 - width*0.1/2,height*0.5 - height*0.05/2,width*0.1,height*0.05));
+	obstacles.push(new obstacle(width*0.5 - width*0.3/2,height*0.5 - height*0.04/2,width*0.3,height*0.04));
 	// genPara = createP();
 }
 
