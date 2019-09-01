@@ -23,7 +23,7 @@ function setup() {
 	startPos = createVector(width/2,height);
 	mypop = new population(startPos.x,startPos.y, popSize);
 	target = createVector(width/2, height*0.1);
-	console.log("Generation : " + generation);
+	// console.log("Generation : " + generation);
 	obstacles.push(new obstacle(width*0.5 - width*0.3/2,height*0.5 - height*0.04/2,width*0.3,height*0.04));
 	// genPara = createP();
 }
@@ -39,14 +39,20 @@ function draw() {
 		ellipse(target.x, target.y, targetRadius*2, targetRadius*2);
 		mypop.show();
 		mypop.update();
-		
+		stroke(0);
+		fill(0);
+		textSize(16);
+		textAlign(LEFT, TOP);
+		text("Generation : " + str(generation) + "\nSuccessful count : " + str(completeCount) + "\nPopulation Count : " + str(popSize),0,0);
+		noStroke();
+		fill(0);
 		// genPara.html("Generation : " + generation);
 		lifeTime++;
 		if(lifeTime>=life || mypop.allCrashedOrCompleted()){
 			let genes = mypop.evaluate();
 			mypop = new population(startPos.x,startPos.y, popSize,genes);
 			generation++;
-			console.log("Generation : " + generation);
+			// console.log("Generation : " + generation);
 			lifeTime = 0;
 		}
 	}
@@ -115,7 +121,7 @@ class population{
 			fitnessValues[i] /= maxFit;
 		}
 
-		console.log(maxFit);
+		// console.log(maxFit);
 
 		return fitnessValues;
 	}
@@ -313,6 +319,6 @@ class rocket{
 	}
 }
 
-function mousePressed(){
-	play^=1;
-}
+// function mousePressed(){
+// 	play^=1;
+// }
